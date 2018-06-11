@@ -1,0 +1,4 @@
+"item1","Authentic Cuisine","Ewa Agoyin",2,300
+
+"item2","The Place","Fried Egg",4,150
+"item3","Unusual Cuisine","Snail",1,1500

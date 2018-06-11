@@ -1,0 +1,6 @@
+Order Items Headers:
+"ItemIDs","RestaurantName","Item",Quantity,UnitPrice
+
+
+Orders Headers:
+OrderID,orderowner,date,total,orderitems(as many as there are!)

@@ -87,6 +87,6 @@ public class Order {
     public String toString() {
         return "\nOrder: " + this.orderId + " - Made by: " + this.orderOwner +            
                 " - From: " + this.restaurant + " - Order Items: " + Arrays.toString(this.orderItems) +
-                " - Made On: " + formatOrderDate(this.orderDate) + " - Your Total: " + this.orderTotal;
+                " - Made On: " + formatOrderDate(this.orderDate) + " - Your Total: ₦" + this.orderTotal;
     }
 }
