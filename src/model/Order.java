@@ -7,8 +7,10 @@ package model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 
 /**
  *
@@ -18,25 +20,38 @@ public class Order {
      int orderId;
      String orderOwner;
      String restaurant;
-     String[] orderItems;
+//     String[] orderItems;
+     HashMap<String, Integer> orderItems;
      int orderTotal;
      Calendar orderDate;
      
      int previousId = 0;
      
 //     constructor for Order object using fields order owner, order items and restaurant
-     public Order(String orderOwner, String restaurant, String[] orderItems){
+//     might need to put this back String[] orderItems if I uncomment the initialisation in the fields
+     public Order(String orderOwner, String restaurant, ArrayList<OrderItems> orderItemsToPut){
          this.orderId = ++previousId;
          this.orderOwner = orderOwner;
-         this.orderItems = orderItems;
+//         this.orderItems = orderItems;
+         //these next two lines are essentially for(OrderItems orderI : orderItemsToPut) code written as a lambda expression
+         orderItemsToPut.forEach((orderI) -> {
+         this.orderItems.put(orderI.itemId, orderI.pricePerUnit);
+         });
          this.restaurant = restaurant;
          this.orderDate = getNow();
+         
+         //this will collect items and compute total
+         for(String itemName : this.orderItems.keySet()){// String itemName: keySet because I don't want to use iterator to complicate
+             //i need to get the object which matches this key
+             //then calculate total by multiplying it's value by 
+             //how do I handle quantity issue?
+         }
      }
      
      public Order (String orderOwner, String restaurant, String[] orderItems, int orderTotal){
          this.orderId = ++previousId;
          this.orderOwner = orderOwner;
-         this.orderItems = orderItems;
+         //this.orderItems = orderItems;
          this.restaurant = restaurant;
          this.orderTotal = orderTotal;
          this.orderDate = getNow();
@@ -54,9 +69,10 @@ public class Order {
          this.orderOwner = orderOwner;
      }
      
+     /*
      public String[] getOrderItems(){
          return this.orderItems;
-     }
+     }*/
      
      public String getRestaurant(){
          return this.restaurant;
@@ -83,10 +99,11 @@ public class Order {
         return ((this.orderId == orderToCheck.orderId) && (orderToCheck != null) && (this.getClass() == orderToCheck.getClass()));
     }
     
+    /*
      @Override
     public String toString() {
         return "\nOrder: " + this.orderId + " - Made by: " + this.orderOwner +            
                 " - From: " + this.restaurant + " - Order Items: " + Arrays.toString(this.orderItems) +
                 " - Made On: " + formatOrderDate(this.orderDate) + " - Your Total: ₦" + this.orderTotal;
-    }
+    }*/
 }

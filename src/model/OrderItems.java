@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.util.Arrays;
-
 /**
  *
  * @author Student
@@ -15,22 +13,24 @@ public class OrderItems {
      String itemId;
      String restaurant;
      String menuItem;
-     int quantity;
+     //int quantity;
      int pricePerUnit;
-     int total;
+//     int total;
      
 //     constructor for OrderItems object using fields
-     public OrderItems(String itemId, String restaurant, String menuItem, int quantity, int pricePerUnit){
+//     I will need to add int quantity to my constructor if I uncomment the fields
+     public OrderItems(String itemId, String restaurant, String menuItem, int pricePerUnit){
          this.itemId = itemId;
          this.menuItem = menuItem;
-         this.quantity = quantity;
+//         this.quantity = quantity;
          this.restaurant = restaurant;
          this.pricePerUnit = pricePerUnit;
          
-         int orderItemstotal = quantity * pricePerUnit;
-         this.total = orderItemstotal;
+//         int orderItemstotal = quantity * pricePerUnit;
+//         this.total = orderItemstotal;
      }
      
+     /*
      public OrderItems(String itemId, String restaurant, String menuItem, int quantity, int pricePerUnit, int total){
          this.itemId = itemId;
          this.menuItem = menuItem;
@@ -38,26 +38,41 @@ public class OrderItems {
          this.restaurant = restaurant;
          this.pricePerUnit = pricePerUnit;
          this.total = total;
-     }
+     }*/
      
      public String getItemId(){
          return this.itemId;
+     }
+     
+     public void setItemId(String newItemId){
+         this.itemId = newItemId;
      }
      
      public String getMenuItem(){
          return this.menuItem;
      }
      
+     public void setMenuItem(String newMenuItem){
+         this.menuItem = newMenuItem;
+     }
+     
+     /*
      public int getQuantity(){
          return this.quantity;
-     }
+     }*/
      
      public int getPricePerUnit(){
          return this.pricePerUnit;
      }
+     
+     public void setPricePerUnit(int newPricePerUnit){
+         this.pricePerUnit = newPricePerUnit;
+     }
+     
+     /*
      public int getTotal(){
          return this.total;
-     }
+     }*/
     
      public String getRestaurant(){
          return this.restaurant;
@@ -71,8 +86,7 @@ public class OrderItems {
      @Override
     public String toString() {
         return "\n Menu Item: " + this.itemId + " - For: " + this.menuItem+            
-                " - From: " + this.restaurant + " - Number of Items: " + this.quantity +
-                " - at Price per Unit: " + this.pricePerUnit + " - Your Total: ₦" + this.total;
+                " - From: " + this.restaurant + " - at Price per Unit: " + this.pricePerUnit;
     }
     
 }
